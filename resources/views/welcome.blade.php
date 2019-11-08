@@ -8,24 +8,23 @@
 
         <!-- Fonts -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet" />
         <!-- Styles -->
     </head>
     <body>
+
     <div id="app">
-        <v-app>
-            <v-content>
-                <v-container>Hello world</v-container>
-            </v-content>
-        </v-app>
+       <main-app/>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-    <script>
-        new Vue({
-            el: '#app',
-            vuetify: new Vuetify(),
-        })
-    </script>
+    <script src="{{ mix('js/app.js') }}"></script>
+{{--    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>--}}
+
+        {{--    <script>--}}
+        {{--        new Vue({--}}
+        {{--            el: '#app',--}}
+        {{--            vuetify: new Vuetify(),--}}
+        {{--        })--}}
+        {{--    </script>--}}
     </body>
 </html>
