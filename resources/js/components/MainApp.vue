@@ -6,7 +6,7 @@
                     <div class="card-header">Example Component</div>
 
                     <div class="card-body">
-                        I'm an example component.
+                        This is our component
                     </div>
                 </div>
             </div>
@@ -16,8 +16,7 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+            name:'main-app'
         }
     }
 </script>
