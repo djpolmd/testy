@@ -4,6 +4,10 @@
             <div class="col-md-8">
                 <div class="card card-default">
                     <div class="card-header"> Custmer SPA </div>
+                        <div class="card-body">
+                            <h2> {{ welcome }} </h2>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
