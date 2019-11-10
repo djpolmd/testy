@@ -1,28 +1,23 @@
 require('./bootstrap');
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Vuex from 'vuex';
-import  {routes} from './routes';
-import StoreData from './store';
-import MainApp from './components/MainApp.vue';
-import Vuetify from 'vuetify';
 
-Vue.use(VueRouter);
-Vue.use(Vuex);
+window.Vue = require('vue');
 
-const store = new Vuex.Store(StoreData);
 
-const router = new VueRouter({
-    routes,
-    mode : 'history'
-});
+Vue.component(
+    'passport-clients',
+    require('./components/passport/Clients.vue')
+);
 
+Vue.component(
+    'passport-authorized-clients',
+    require('./components/passport/AuthorizedClients.vue')
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('./components/passport/PersonalAccessTokens.vue')
+);
 
 const app = new Vue({
-    el: '#app',
-    router,
-    store,
-    components:{
-        MainApp
-    }
+    el: '#app'
 });
