@@ -69,6 +69,7 @@
         /**
          * Prepare the component (Vue 2.x).
          */
+
         mounted() {
             this.prepareComponent();
         },
@@ -82,6 +83,7 @@
             /**
              * Get all of the authorized tokens for the user.
              */
+
             getTokens() {
                 axios.get('/oauth/tokens')
                     .then(response => {
@@ -91,6 +93,7 @@
             /**
              * Revoke the given token.
              */
+
             revoke(token) {
                 axios.delete('/oauth/tokens/' + token.id)
                     .then(response => {

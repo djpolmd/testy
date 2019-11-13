@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Http\Resources;
+
 use Illuminate\Http\Resources\Json\JsonResource;
+
 class Contact extends JsonResource
 {
     /**
@@ -16,8 +19,6 @@ class Contact extends JsonResource
             'fullName'=>$this->name,
             'mobile'=>$this->phone,
             'created_at'=>(string)$this->created_at->format('m/d/Y'),
-
-
         ];
     }
 }

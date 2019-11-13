@@ -267,6 +267,7 @@
             /**
              * Revoke the given token.
              */
+
             revoke(token) {
                 axios.delete('/oauth/personal-access-tokens/' + token.id)
                     .then(response => {

@@ -14,9 +14,11 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $contacts=request()->user()->contacts;
+
         return ContactResource::collection($contacts);
     }
 
@@ -26,17 +28,21 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         $contact=$request->user()->contacts()->create($request->all());
+
         return new ContactResource($contact);
     }
+
     /**
      * Display the specified resource.
      *
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
+
     public function show(Contact $contact)
     {
         return new ContactResource($contact);
@@ -54,9 +60,12 @@ class ContactController extends Controller
         if($request->user()->id !== $contact->user_id){
             return response()->json(['error'=>'Unauthorized action'],401);
         }
-        $contact->update($request->all());
+
+          $contact->update($request->all());
+
         return new ContactResource($contact);
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -65,10 +74,12 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        if(request()->user()->id !== $contact->user_id){
+         if(request()->user()->id !== $contact->user_id){
             return response()->json(['error'=>'Unauthorized action'],401);
         }
-        $contact=$contact->delete();
-        return response()->json(null,200);
+
+         $contact=$contact->delete();
+
+         return response()->json(null,200);
     }
 }
