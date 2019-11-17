@@ -18,6 +18,6 @@ class Contact extends Model
     public function hey($name=null,$type=false)
     {
         return $name;
-
     }
 }
+

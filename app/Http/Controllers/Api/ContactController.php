@@ -17,9 +17,9 @@ class ContactController extends Controller
 
     public function index()
     {
-        $contacts=request()->user()->contacts;
-
-        return ContactResource::collection($contacts);
+//        $contacts=request()->user()->contacts;
+        $user = Detail::all();
+        return $user;
     }
 
     /**

@@ -17,6 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/register','Api\AuthController@register');
-Route::post('/login','Api\AuthController@login');
-Route::apiResource('contact','Api\ContactController');
+Route::post('/register' ,    'Api\AuthController@register');
+
+Route::post('/login',        'Api\AuthController@login');
+
+Route::get('/contact' ,      'Api\ContactController@index');
+
+//Route::apiResource('contact','Api\ContactController');

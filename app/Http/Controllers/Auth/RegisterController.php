@@ -69,10 +69,4 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-//    guard" that is used to authenticate and register users
-    protected function guard()
-    {
-        return Auth::guard('guard-name');
-    }
-
 }

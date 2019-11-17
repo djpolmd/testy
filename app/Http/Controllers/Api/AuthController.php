@@ -12,7 +12,7 @@ class AuthController extends Controller
 	public function register(Request $request){
 
 		$request->validate([
-			'email'=>'required',
+			'email'=>'required|email|unique:users',
 			'name'=>'required',
 			'password'=>'required'
 		]);
@@ -56,24 +56,29 @@ class AuthController extends Controller
 			return response(['status'=>'error','message'=>'User not found']);
 		}
 
+
+
 		if(Hash::check($request->password, $user->password)){
 
 				$http = new Client;
 
-			$response = $http->post(url('oauth/token'), [
-				'form_params' => [
-					'grant_type' => 'password',
-					'client_id' => '2',
-					'client_secret' => 'tBhWuGQdHNCQ1zMIIHvfbQtjLbZwY2ihv7QJ1bTE',
-					'username' => $request->email,
-					'password' => $request->password,
-					'scope' => '',
-				],
-			]);
+//            return  ('"Message":"Sorry is a text"');
+
+//            $response = $http->post(url('oauth/token'), [
+//				'form_params' => [
+//					'grant_type' => 'password',
+//					'client_id' => '7',
+//					'client_secret' => 'JdchJ4MqhrKnyeLuDAlmtTwhrEu2NkBPOV4HHju8',
+//					'username' => $request->email,
+//					'password' => $request->password,
+//					'scope' => '',
+//				],
+//			]);
+
 			return response(['auth' => json_decode((string)$response->getBody(), true), 'user' => $user]);
 
 
-		}else{
+		}   else{
 			return response(['message'=>'password not match','status'=>'error']);
 		}
 
